@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="JarvisAssistant.UI.SetupPage"
+             Title="Configuração Inicial — Jarvis"
+             BackgroundColor="#0A0E1A">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="40,30" Spacing="20">
+
+            <!-- Header -->
+            <Label Text="⚡ JARVIS" FontSize="36" FontAttributes="Bold"
+                   TextColor="#00D4FF" HorizontalOptions="Center"/>
+            <Label Text="Assistente Pessoal para Windows"
+                   FontSize="14" TextColor="#8892A4" HorizontalOptions="Center" Margin="0,0,0,20"/>
+
+            <!-- PASSO 1: Provider de IA -->
+            <Frame BackgroundColor="#111827" BorderColor="#1E3A5F" CornerRadius="12" Padding="20">
+                <VerticalStackLayout Spacing="12">
+                    <Label Text="1. Escolha o cérebro da IA" FontSize="16"
+                           FontAttributes="Bold" TextColor="#E2E8F0"/>
+                    <Label Text="Selecione o provider e insira sua API Key."
+                           FontSize="13" TextColor="#8892A4"/>
+
+                    <Picker x:Name="ProviderPicker" Title="Selecione o Provider"
+                            SelectedIndexChanged="OnProviderChanged"
+                            BackgroundColor="#1E2D40" TextColor="#E2E8F0">
+                        <Picker.Items>
+                            <x:String>Claude (Anthropic) — Recomendado</x:String>
+                            <x:String>OpenAI (GPT-4o)</x:String>
+                            <x:String>Ollama (Local — sem custo)</x:String>
+                        </Picker.Items>
+                    </Picker>
+
+                    <!-- Claude -->
+                    <VerticalStackLayout x:Name="ClaudePanel" IsVisible="True" Spacing="8">
+                        <Label Text="API Key do Claude (console.anthropic.com)"
+                               TextColor="#8892A4" FontSize="13"/>
+                        <Entry x:Name="ClaudeKeyEntry" Placeholder="sk-ant-..."
+                               IsPassword="True" BackgroundColor="#1E2D40"
+                               TextColor="#E2E8F0" PlaceholderColor="#4A5568"/>
+                        <Label Text="→ Cadastre-se gratuitamente em console.anthropic.com"
+                               TextColor="#00D4FF" FontSize="12"/>
+                    </VerticalStackLayout>
+
+                    <!-- OpenAI -->
+                    <VerticalStackLayout x:Name="OpenAIPanel" IsVisible="False" Spacing="8">
+                        <Label Text="API Key da OpenAI (platform.openai.com)"
+                               TextColor="#8892A4" FontSize="13"/>
+                        <Entry x:Name="OpenAIKeyEntry" Placeholder="sk-..."
+                               IsPassword="True" BackgroundColor="#1E2D40"
+                               TextColor="#E2E8F0" PlaceholderColor="#4A5568"/>
+                    </VerticalStackLayout>
+
+                    <!-- Ollama -->
+                    <VerticalStackLayout x:Name="OllamaPanel" IsVisible="False" Spacing="8">
+                        <Label Text="Endpoint do Ollama (ex: http://localhost:11434)"
+                               TextColor="#8892A4" FontSize="13"/>
+                        <Entry x:Name="OllamaEndpointEntry" Text="http://localhost:11434"
+                               BackgroundColor="#1E2D40" TextColor="#E2E8F0"/>
+                        <Label Text="Modelo (ex: llama3, mistral, phi3)"
+                               TextColor="#8892A4" FontSize="13"/>
+                        <Entry x:Name="OllamaModelEntry" Text="llama3"
+                               BackgroundColor="#1E2D40" TextColor="#E2E8F0"/>
+                        <Label Text="→ Instale o Ollama em ollama.com e execute: ollama pull llama3"
+                               TextColor="#00D4FF" FontSize="12"/>
+                    </VerticalStackLayout>
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- PASSO 2: Voz -->
+            <Frame BackgroundColor="#111827" BorderColor="#1E3A5F" CornerRadius="12" Padding="20">
+                <VerticalStackLayout Spacing="12">
+                    <Label Text="2. Configuração de Voz" FontSize="16"
+                           FontAttributes="Bold" TextColor="#E2E8F0"/>
+
+                    <HorizontalStackLayout Spacing="12">
+                        <Switch x:Name="VoiceSwitch" IsToggled="True" OnColor="#00D4FF"/>
+                        <Label Text="Síntese de voz ativada" TextColor="#E2E8F0"
+                               VerticalOptions="Center"/>
+                    </HorizontalStackLayout>
+
+                    <HorizontalStackLayout Spacing="12">
+                        <Switch x:Name="STTSwitch" IsToggled="True" OnColor="#00D4FF"/>
+                        <Label Text="Reconhecimento de voz ativado" TextColor="#E2E8F0"
+                               VerticalOptions="Center"/>
+                    </HorizontalStackLayout>
+
+                    <Label Text="Wake Word (palavra que ativa o Jarvis)"
+                           TextColor="#8892A4" FontSize="13"/>
+                    <Entry x:Name="WakeWordEntry" Text="Jarvis"
+                           BackgroundColor="#1E2D40" TextColor="#E2E8F0"/>
+
+                    <Label Text="Provider de voz" TextColor="#8892A4" FontSize="13"/>
+                    <Picker x:Name="VoiceProviderPicker" BackgroundColor="#1E2D40" TextColor="#E2E8F0">
+                        <Picker.Items>
+                            <x:String>Windows TTS (nativo, sem custo)</x:String>
+                            <x:String>Azure Cognitive Speech (melhor qualidade)</x:String>
+                        </Picker.Items>
+                    </Picker>
+
+                    <VerticalStackLayout x:Name="AzureVoicePanel" IsVisible="False" Spacing="8">
+                        <Label Text="Azure Speech Key" TextColor="#8892A4" FontSize="13"/>
+                        <Entry x:Name="AzureKeyEntry" IsPassword="True"
+                               BackgroundColor="#1E2D40" TextColor="#E2E8F0"/>
+                        <Label Text="Região (ex: eastus)" TextColor="#8892A4" FontSize="13"/>
+                        <Entry x:Name="AzureRegionEntry" Text="eastus"
+                               BackgroundColor="#1E2D40" TextColor="#E2E8F0"/>
+                    </VerticalStackLayout>
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- PASSO 3: Web -->
+            <Frame BackgroundColor="#111827" BorderColor="#1E3A5F" CornerRadius="12" Padding="20">
+                <VerticalStackLayout Spacing="12">
+                    <Label Text="3. Integrações Web (opcionais)" FontSize="16"
+                           FontAttributes="Bold" TextColor="#E2E8F0"/>
+                    <Label Text="Busca DuckDuckGo funciona sem chave. Clima e notícias precisam de chaves gratuitas."
+                           FontSize="12" TextColor="#8892A4"/>
+
+                    <Label Text="OpenWeatherMap API Key (clima)" TextColor="#8892A4" FontSize="13"/>
+                    <Entry x:Name="WeatherKeyEntry" Placeholder="Obtenha grátis em openweathermap.org"
+                           BackgroundColor="#1E2D40" TextColor="#E2E8F0"
+                           PlaceholderColor="#4A5568"/>
+
+                    <Label Text="NewsAPI Key (notícias)" TextColor="#8892A4" FontSize="13"/>
+                    <Entry x:Name="NewsKeyEntry" Placeholder="Obtenha grátis em newsapi.org"
+                           BackgroundColor="#1E2D40" TextColor="#E2E8F0"
+                           PlaceholderColor="#4A5568"/>
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- PASSO 4: Personalidade -->
+            <Frame BackgroundColor="#111827" BorderColor="#1E3A5F" CornerRadius="12" Padding="20">
+                <VerticalStackLayout Spacing="12">
+                    <Label Text="4. Personalidade do Assistente" FontSize="16"
+                           FontAttributes="Bold" TextColor="#E2E8F0"/>
+
+                    <Label Text="Nome do assistente" TextColor="#8892A4" FontSize="13"/>
+                    <Entry x:Name="AssistantNameEntry" Text="Jarvis"
+                           BackgroundColor="#1E2D40" TextColor="#E2E8F0"/>
+
+                    <Label Text="Prompt de sistema (define como o assistente se comporta)"
+                           TextColor="#8892A4" FontSize="13"/>
+                    <Editor x:Name="SystemPromptEditor"
+                            Text="Você é Jarvis, um assistente pessoal inteligente. Responda em português, seja direto e eficiente."
+                            AutoSize="TextChanges" MinimumHeightRequest="100"
+                            BackgroundColor="#1E2D40" TextColor="#E2E8F0"/>
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- Botão Salvar -->
+            <Button Text="💾  Salvar e Iniciar Jarvis" Clicked="OnSaveClicked"
+                    BackgroundColor="#00D4FF" TextColor="#0A0E1A"
+                    FontAttributes="Bold" FontSize="16"
+                    CornerRadius="10" HeightRequest="54" Margin="0,10"/>
+
+            <Label x:Name="StatusLabel" Text="" TextColor="#F87171"
+                   HorizontalOptions="Center" FontSize="13"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
