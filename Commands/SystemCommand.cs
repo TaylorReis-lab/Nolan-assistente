@@ -1,7 +1,7 @@
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 
-namespace JarvisCLI.Commands;
+namespace NolanCLI.Commands;
 
 /// <summary>
 /// Comandos do sistema operacional.
@@ -23,14 +23,14 @@ public class SystemCommand : ICommand
 
     [DllImport("user32.dll")] static extern void keybd_event(byte bVk, byte bScan, uint dwFlags, int dwExtraInfo);
 
-    private const byte VK_VOLUME_UP   = 0xAF;
+    private const byte VK_VOLUME_UP = 0xAF;
     private const byte VK_VOLUME_DOWN = 0xAE;
     private const byte VK_VOLUME_MUTE = 0xAD;
 
     public void Execute(string[] args)
     {
         var keyword = args.Length > 0 ? args[0].ToLower() : "";
-        var extra   = args.Length > 1 ? args[1].ToLower() : "";
+        var extra = args.Length > 1 ? args[1].ToLower() : "";
 
         switch (keyword)
         {

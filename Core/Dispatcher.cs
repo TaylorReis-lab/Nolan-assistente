@@ -1,6 +1,6 @@
-using JarvisCLI.Commands;
+using NolanCLI.Commands;
 
-namespace JarvisCLI.Core;
+namespace NolanCLI.Core;
 
 /// <summary>
 /// Recebe uma linha de texto, identifica qual comando executar e o dispara.
@@ -50,7 +50,7 @@ public class Dispatcher
         if (modeCmd != null)
         {
             // Tenta como trigger direto — ex: "hora de trabalhar" sem prefixo
-            modeCmd.Execute(["ativar", ..tokens]);
+            modeCmd.Execute(["ativar", .. tokens]);
             return true;
         }
 

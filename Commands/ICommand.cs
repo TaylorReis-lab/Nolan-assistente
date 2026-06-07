@@ -1,4 +1,4 @@
-namespace JarvisCLI.Commands;
+namespace NolanCLI.Commands;
 
 /// <summary>
 /// Interface que todo comando do Jarvis implementa.

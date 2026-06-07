@@ -1,7 +1,7 @@
 using System.Diagnostics;
-using JarvisCLI.Models;
+using NolanCLI.Models;
 
-namespace JarvisCLI.Services;
+namespace NolanCLI.Services;
 
 /// <summary>
 /// Responsável por abrir e fechar processos do Windows.

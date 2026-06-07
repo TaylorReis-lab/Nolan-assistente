@@ -1,4 +1,4 @@
-# ⚡ Jarvis Assistant
+# ⚡ Nolan Assistant
 
 Assistente pessoal estilo Jarvis para Windows, desenvolvido em .NET MAUI (C#).
 
@@ -36,6 +36,7 @@ JarvisAssistant/
 ## 🚀 Como Rodar
 
 ### Pré-requisitos
+
 - **Visual Studio 2022** (versão 17.8+) com workload **.NET MAUI**
 - **.NET 8 SDK**
 - **Windows 10 versão 1903** ou superior
@@ -45,6 +46,7 @@ JarvisAssistant/
 1. **Clone ou abra o projeto** no Visual Studio 2022.
 
 2. **Restaure os pacotes NuGet:**
+
    ```
    dotnet restore
    ```
@@ -61,13 +63,14 @@ Na primeira execução, o wizard de configuração será aberto automaticamente.
 
 ### IA (obrigatório — escolha um)
 
-| Provider | Onde obter | Custo |
-|----------|-----------|-------|
-| **Claude (Anthropic)** | console.anthropic.com | Pago (melhor qualidade) |
-| **OpenAI (GPT-4o)** | platform.openai.com | Pago |
-| **Ollama** | ollama.com | **Gratuito** (roda local) |
+| Provider               | Onde obter            | Custo                     |
+| ---------------------- | --------------------- | ------------------------- |
+| **Claude (Anthropic)** | console.anthropic.com | Pago (melhor qualidade)   |
+| **OpenAI (GPT-4o)**    | platform.openai.com   | Pago                      |
+| **Ollama**             | ollama.com            | **Gratuito** (roda local) |
 
 #### Configurar Ollama (opção gratuita):
+
 ```bash
 # 1. Baixe e instale: https://ollama.com
 # 2. Baixe um modelo:
@@ -84,6 +87,7 @@ ollama pull mistral
 **Windows TTS** (nativo): funciona sem configuração.
 
 **Azure Cognitive Speech** (qualidade superior):
+
 1. Acesse: portal.azure.com
 2. Crie um recurso **Speech Services** (tier gratuito F0 disponível)
 3. Copie a **Key** e a **Region**
@@ -92,11 +96,11 @@ ollama pull mistral
 
 ### Web (opcional)
 
-| Serviço | Onde obter | Tier gratuito |
-|---------|-----------|--------------|
-| OpenWeatherMap (clima) | openweathermap.org/api | ✅ 60 calls/min |
-| NewsAPI (notícias) | newsapi.org | ✅ 100 requests/day |
-| DuckDuckGo (busca) | — | ✅ Sem chave |
+| Serviço                | Onde obter             | Tier gratuito       |
+| ---------------------- | ---------------------- | ------------------- |
+| OpenWeatherMap (clima) | openweathermap.org/api | ✅ 60 calls/min     |
+| NewsAPI (notícias)     | newsapi.org            | ✅ 100 requests/day |
+| DuckDuckGo (busca)     | —                      | ✅ Sem chave        |
 
 ---
 
@@ -104,20 +108,21 @@ ollama pull mistral
 
 Fale **"Jarvis"** seguido do comando:
 
-| Exemplo | O que faz |
-|---------|-----------|
-| `"Jarvis, abrir Chrome"` | Abre o Chrome |
-| `"Jarvis, que horas são?"` | Fala hora atual |
-| `"Jarvis, qual o clima em Brasília?"` | Busca clima |
-| `"Jarvis, notícias de hoje"` | Lê manchetes |
-| `"Jarvis, aumentar volume"` | Aumenta volume do sistema |
-| `"Jarvis, bloquear computador"` | Bloqueia a tela |
+| Exemplo                               | O que faz                 |
+| ------------------------------------- | ------------------------- |
+| `"Jarvis, abrir Chrome"`              | Abre o Chrome             |
+| `"Jarvis, que horas são?"`            | Fala hora atual           |
+| `"Jarvis, qual o clima em Brasília?"` | Busca clima               |
+| `"Jarvis, notícias de hoje"`          | Lê manchetes              |
+| `"Jarvis, aumentar volume"`           | Aumenta volume do sistema |
+| `"Jarvis, bloquear computador"`       | Bloqueia a tela           |
 
 ---
 
 ## ⚙️ Configurações
 
 Ficam salvas em:
+
 ```
 %AppData%\JarvisAssistant\appsettings.json
 ```

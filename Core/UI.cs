@@ -1,4 +1,4 @@
-namespace JarvisCLI;
+namespace NolanCLI;
 
 /// <summary>
 /// Helpers de output colorido para o console.
@@ -8,13 +8,13 @@ public static class UI
 {
     // ── Formatação inline (retornam string com ANSI) ──────────────────
 
-    public static string Bold(string s)  => $"\x1b[1m{s}\x1b[0m";
-    public static string Dim(string s)   => $"\x1b[2m{s}\x1b[0m";
-    public static string Cyan(string s)  => $"\x1b[96m{s}\x1b[0m";
+    public static string Bold(string s) => $"\x1b[1m{s}\x1b[0m";
+    public static string Dim(string s) => $"\x1b[2m{s}\x1b[0m";
+    public static string Cyan(string s) => $"\x1b[96m{s}\x1b[0m";
     public static string Green(string s) => $"\x1b[92m{s}\x1b[0m";
-    public static string Red(string s)   => $"\x1b[91m{s}\x1b[0m";
-    public static string Yellow(string s)=> $"\x1b[93m{s}\x1b[0m";
-    public static string Purple(string s)=> $"\x1b[95m{s}\x1b[0m";
+    public static string Red(string s) => $"\x1b[91m{s}\x1b[0m";
+    public static string Yellow(string s) => $"\x1b[93m{s}\x1b[0m";
+    public static string Purple(string s) => $"\x1b[95m{s}\x1b[0m";
 
     // ── Saídas de linha ───────────────────────────────────────────────
 

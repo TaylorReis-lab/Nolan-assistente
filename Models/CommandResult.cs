@@ -1,4 +1,4 @@
-namespace JarvisCLI.Models;
+namespace NolanCLI.Models;
 
 /// <summary>
 /// Resultado de qualquer comando executado pelo Jarvis.
@@ -6,9 +6,9 @@ namespace JarvisCLI.Models;
 /// </summary>
 public class CommandResult
 {
-    public bool    Success { get; init; }
-    public string  Message { get; init; } = "";
-    public string? Detail  { get; init; } // detalhe técnico opcional
+    public bool Success { get; init; }
+    public string Message { get; init; } = "";
+    public string? Detail { get; init; } // detalhe técnico opcional
 
     public static CommandResult Ok(string message, string? detail = null) =>
         new() { Success = true, Message = message, Detail = detail };

@@ -1,7 +1,7 @@
-using JarvisCLI.Models;
-using JarvisCLI.Services;
+using NolanCLI.Models;
+using NolanCLI.Services;
 
-namespace JarvisCLI.Commands;
+namespace NolanCLI.Commands;
 
 /// <summary>
 /// Abre ou fecha aplicativos individuais.
@@ -14,37 +14,37 @@ namespace JarvisCLI.Commands;
 /// </summary>
 public class AppCommand(Launcher launcher) : ICommand
 {
-    public IEnumerable<string> Keywords    => ["abrir", "open", "fechar", "close", "matar", "kill"];
-    public string              Description => "Abre ou fecha um aplicativo";
+    public IEnumerable<string> Keywords => ["abrir", "open", "fechar", "close", "matar", "kill"];
+    public string Description => "Abre ou fecha um aplicativo";
 
     // Atalhos comuns: nome → executável
     private static readonly Dictionary<string, string> Aliases = new(StringComparer.OrdinalIgnoreCase)
     {
-        ["chrome"]         = "chrome",
-        ["google"]         = "chrome",
-        ["firefox"]        = "firefox",
-        ["edge"]           = "msedge",
-        ["vscode"]         = "code",
-        ["vs code"]        = "code",
-        ["code"]           = "code",
-        ["discord"]        = "discord",
-        ["spotify"]        = "spotify",
-        ["notion"]         = "notion",
-        ["slack"]          = "slack",
-        ["telegram"]       = "telegram",
-        ["whatsapp"]       = "whatsapp",
-        ["notepad"]        = "notepad",
+        ["chrome"] = "chrome",
+        ["google"] = "chrome",
+        ["firefox"] = "firefox",
+        ["edge"] = "msedge",
+        ["vscode"] = "code",
+        ["vs code"] = "code",
+        ["code"] = "code",
+        ["discord"] = "discord",
+        ["spotify"] = "spotify",
+        ["notion"] = "notion",
+        ["slack"] = "slack",
+        ["telegram"] = "telegram",
+        ["whatsapp"] = "whatsapp",
+        ["notepad"] = "notepad",
         ["bloco de notas"] = "notepad",
-        ["terminal"]       = "wt",
-        ["powershell"]     = "powershell",
-        ["explorador"]     = "explorer",
-        ["calc"]           = "calc",
-        ["calculadora"]    = "calc",
-        ["word"]           = "winword",
-        ["excel"]          = "excel",
-        ["teams"]          = "ms-teams",
-        ["obs"]            = "obs64",
-        ["steam"]          = "steam",
+        ["terminal"] = "wt",
+        ["powershell"] = "powershell",
+        ["explorador"] = "explorer",
+        ["calc"] = "calc",
+        ["calculadora"] = "calc",
+        ["word"] = "winword",
+        ["excel"] = "excel",
+        ["teams"] = "ms-teams",
+        ["obs"] = "obs64",
+        ["steam"] = "steam",
     };
 
     public void Execute(string[] args)

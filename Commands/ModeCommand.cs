@@ -1,7 +1,7 @@
-using JarvisCLI.Models;
-using JarvisCLI.Services;
+using NolanCLI.Models;
+using NolanCLI.Services;
 
-namespace JarvisCLI.Commands;
+namespace NolanCLI.Commands;
 
 /// <summary>
 /// Gerencia e ativa modos de trabalho.
@@ -14,8 +14,8 @@ namespace JarvisCLI.Commands;
 /// </summary>
 public class ModeCommand(ModeStore store, Launcher launcher) : ICommand
 {
-    public IEnumerable<string> Keywords    => ["modo", "mode", "modos"];
-    public string              Description => "Gerencia modos de trabalho (listar, ativar, criar, remover)";
+    public IEnumerable<string> Keywords => ["modo", "mode", "modos"];
+    public string Description => "Gerencia modos de trabalho (listar, ativar, criar, remover)";
 
     public void Execute(string[] args)
     {

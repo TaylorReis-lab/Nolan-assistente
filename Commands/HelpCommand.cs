@@ -1,9 +1,9 @@
-namespace JarvisCLI.Commands;
+namespace NolanCLI.Commands;
 
 public class HelpCommand(IEnumerable<ICommand> all) : ICommand
 {
-    public IEnumerable<string> Keywords    => ["help", "ajuda", "?"];
-    public string              Description => "Mostra esta ajuda";
+    public IEnumerable<string> Keywords => ["help", "ajuda", "?"];
+    public string Description => "Mostra esta ajuda";
 
     public void Execute(string[] args)
     {

@@ -1,23 +1,23 @@
-using JarvisCLI;
-using JarvisCLI.Commands;
-using JarvisCLI.Core;
-using JarvisCLI.Services;
+using NolanCLI;
+using NolanCLI.Commands;
+using NolanCLI.Core;
+using NolanCLI.Services;
 
 // ── Habilita cores ANSI no terminal Windows ───────────────────────────────────
 Console.OutputEncoding = System.Text.Encoding.UTF8;
 
 // ── Monta os serviços (sem DI framework — direto e simples) ──────────────────
-var store    = new ModeStore();
+var store = new ModeStore();
 var launcher = new Launcher();
 
 // ── Registra os comandos ──────────────────────────────────────────────────────
-var modeCmd   = new ModeCommand(store, launcher);
-var appCmd    = new AppCommand(launcher);
-var sysCmd    = new SystemCommand();
+var modeCmd = new ModeCommand(store, launcher);
+var appCmd = new AppCommand(launcher);
+var sysCmd = new SystemCommand();
 
 // HelpCommand precisa da lista de todos para exibir
 var allCommands = new List<ICommand> { modeCmd, appCmd, sysCmd };
-var helpCmd     = new HelpCommand(allCommands);
+var helpCmd = new HelpCommand(allCommands);
 allCommands.Add(helpCmd);
 
 // ── Dispatcher ────────────────────────────────────────────────────────────────
@@ -26,7 +26,7 @@ var dispatcher = new Dispatcher(allCommands);
 // ── Boot ──────────────────────────────────────────────────────────────────────
 const string NAME = "Jarvis";
 UI.Banner(NAME);
-UI.Hint($"Modos carregados: {store.All.Count}  —  arquivo: %AppData%\\JarvisCLI\\modes.json");
+UI.Hint($"Modos carregados: {store.All.Count}  —  arquivo: %AppData%\\NolanCLI\\modes.json");
 
 // ── Loop principal ────────────────────────────────────────────────────────────
 while (true)

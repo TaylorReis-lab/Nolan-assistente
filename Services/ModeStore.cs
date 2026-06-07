@@ -1,15 +1,15 @@
 using System.Text.Json;
-using JarvisCLI.Models;
+using NolanCLI.Models;
 
-namespace JarvisCLI.Services;
+namespace NolanCLI.Services;
 
 /// <summary>
-/// Persiste os modos de trabalho em %AppData%\JarvisCLI\modes.json
+/// Persiste os modos de trabalho em %AppData%\NolanCLI\modes.json
 /// </summary>
 public class ModeStore
 {
     private static readonly string Dir =
-        Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "JarvisCLI");
+        Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "NolanCLI");
 
     private static readonly string File =
         Path.Combine(Dir, "modes.json");
