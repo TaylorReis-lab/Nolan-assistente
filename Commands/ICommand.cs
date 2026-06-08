@@ -1,7 +1,7 @@
 namespace NolanCLI.Commands;
 
 /// <summary>
-/// Interface que todo comando do Jarvis implementa.
+/// Interface que todo comando do Nolanimplementa.
 /// Adicionar um novo comando = criar uma classe que implementa isso.
 /// </summary>
 public interface ICommand

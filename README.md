@@ -1,6 +1,6 @@
 # ⚡ Nolan Assistant
 
-> Assistente pessoal para Windows inspirado no Jarvis do Homem de Ferro.
+> Assistente pessoal para Windows inspirado no Nolando Homem de Ferro.
 > Desenvolvido em C# com foco em automação local, leveza e extensibilidade.
 
 ---
@@ -31,24 +31,24 @@ Funcionalidades planejadas (nem todas prontas ainda):
 
 ## 🏗️ Estado atual do projeto
 
-| Módulo | Status |
-|---|---|
-| CLI de automação local | ✅ Funcional |
-| Modos de trabalho (criar/ativar/remover) | ✅ Funcional |
-| Abertura e fechamento de apps | ✅ Funcional |
-| Comandos de sistema (hora, volume, lock) | ✅ Funcional |
-| Interface MAUI (desktop) | 🔄 Em refatoração |
-| Reconhecimento de voz | 🔄 Em refatoração |
-| Integração com IA | ⏳ Planejado |
-| Integração web (clima, notícias) | ⏳ Planejado |
-| Hotkey global | ⏳ Planejado |
+| Módulo                                   | Status            |
+| ---------------------------------------- | ----------------- |
+| CLI de automação local                   | ✅ Funcional      |
+| Modos de trabalho (criar/ativar/remover) | ✅ Funcional      |
+| Abertura e fechamento de apps            | ✅ Funcional      |
+| Comandos de sistema (hora, volume, lock) | ✅ Funcional      |
+| Interface MAUI (desktop)                 | 🔄 Em refatoração |
+| Reconhecimento de voz                    | 🔄 Em refatoração |
+| Integração com IA                        | ⏳ Planejado      |
+| Integração web (clima, notícias)         | ⏳ Planejado      |
+| Hotkey global                            | ⏳ Planejado      |
 
 ---
 
 ## 🗂️ Estrutura atual
 
 ```
-JarvisCLI/                      ← versão CLI (testável agora)
+NolanCLI/                      ← versão CLI (testável agora)
 ├── Program.cs                  ← entry point
 ├── Core/
 │   ├── Dispatcher.cs           ← roteia input para o comando certo
@@ -82,7 +82,7 @@ A versão MAUI (interface gráfica) está sendo refatorada separadamente e será
 
 ```powershell
 # Entre na pasta do projeto CLI
-cd JarvisCLI
+cd NolanCLI
 
 # Restaure os pacotes
 dotnet restore
@@ -91,7 +91,7 @@ dotnet restore
 dotnet run
 ```
 
-Na primeira execução, três modos de exemplo são criados automaticamente em `%AppData%\JarvisCLI\modes.json`.
+Na primeira execução, três modos de exemplo são criados automaticamente em `%AppData%\NolanCLI\modes.json`.
 
 ---
 
@@ -149,7 +149,7 @@ sair              → fecha o Nolan
 Os modos ficam salvos em:
 
 ```
-%AppData%\JarvisCLI\modes.json
+%AppData%\NolanCLI\modes.json
 ```
 
 Você pode editar o arquivo diretamente ou usar o comando `modo criar` no CLI.
@@ -161,13 +161,11 @@ Exemplo de modo no JSON:
   "name": "Hora de Trabalhar",
   "trigger": "hora de trabalhar",
   "open": [
-    { "label": "VS Code",  "executable": "code"    },
-    { "label": "Discord",  "executable": "discord" },
-    { "label": "Spotify",  "executable": "spotify" }
+    { "label": "VS Code", "executable": "code" },
+    { "label": "Discord", "executable": "discord" },
+    { "label": "Spotify", "executable": "spotify" }
   ],
-  "close": [
-    { "label": "WhatsApp", "executable": "whatsapp" }
-  ]
+  "close": [{ "label": "WhatsApp", "executable": "whatsapp" }]
 }
 ```
 
@@ -175,11 +173,11 @@ Exemplo de modo no JSON:
 
 ## 🔑 APIs futuras (quando IA for integrada)
 
-| Provider | Onde obter | Custo |
-|---|---|---|
-| **Claude (Anthropic)** | console.anthropic.com | Pago |
-| **OpenAI (GPT-4o)** | platform.openai.com | Pago |
-| **Ollama** | ollama.com | **Gratuito** (roda local) |
+| Provider               | Onde obter            | Custo                     |
+| ---------------------- | --------------------- | ------------------------- |
+| **Claude (Anthropic)** | console.anthropic.com | Pago                      |
+| **OpenAI (GPT-4o)**    | platform.openai.com   | Pago                      |
+| **Ollama**             | ollama.com            | **Gratuito** (roda local) |
 
 Para usar Ollama sem custo:
 
@@ -195,6 +193,7 @@ ollama pull llama3
 ## 🛣️ Roadmap
 
 ### Fase 1 — Base CLI (em andamento)
+
 - [x] Estrutura de comandos extensível (`ICommand`)
 - [x] Sistema de modos com persistência JSON
 - [x] Automação de apps (abrir/fechar)
@@ -202,18 +201,21 @@ ollama pull llama3
 - [ ] Testes unitários dos serviços core
 
 ### Fase 2 — Interface gráfica
+
 - [ ] Refatoração da UI MAUI
 - [ ] Tela de modos com editor visual
 - [ ] Painel de estatísticas
 - [ ] Tema futurista finalizado
 
 ### Fase 3 — IA e voz
+
 - [ ] Integração com Claude / OpenAI / Ollama
 - [ ] Reconhecimento de voz (wake word)
 - [ ] Síntese de voz (TTS)
 - [ ] Memória de contexto entre sessões
 
 ### Fase 4 — Integrações
+
 - [ ] Hotkey global (ativa sem abrir a janela)
 - [ ] Clima e notícias
 - [ ] Google Calendar / Outlook

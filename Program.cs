@@ -24,7 +24,7 @@ allCommands.Add(helpCmd);
 var dispatcher = new Dispatcher(allCommands);
 
 // ── Boot ──────────────────────────────────────────────────────────────────────
-const string NAME = "Jarvis";
+const string NAME = "Nolan";
 UI.Banner(NAME);
 UI.Hint($"Modos carregados: {store.All.Count}  —  arquivo: %AppData%\\NolanCLI\\modes.json");
 

@@ -7,7 +7,7 @@ public class HelpCommand(IEnumerable<ICommand> all) : ICommand
 
     public void Execute(string[] args)
     {
-        UI.Title("Jarvis CLI — Comandos disponíveis");
+        UI.Title("Nolan CLI — Comandos disponíveis");
 
         foreach (var cmd in all)
         {
